@@ -3,7 +3,9 @@ import React from 'react'
 const Reactcontact =() => {
     return(
         <>
-            <h1> This is a sample</h1>
+            <h1>If u see this, we're on right track</h1>
+
+                    
         </>
 
     )
