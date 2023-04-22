@@ -56,3 +56,7 @@
 .feed__options .feed__options:hover{
     background-color: #eee;
 } 
+
+.feed__options .option svg{
+    margin-right:5px ;
+}
