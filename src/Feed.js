@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
@@ -9,7 +9,9 @@ import Post from './Post';
 import firebase from "firebase"
 import { db } from './firebase'; 
 
+
 function Feed() {
+    const [posts, setPost] = useState([]);
     const [input,setInput] = useState();
     const submitPost = (e)=>{
         e.preventDefault();
@@ -22,6 +24,16 @@ function Feed() {
         });
         setInput("");
     }
+
+    useEffect(()=>{
+        db.collection("posts").orderBy("timestamp", "desc").onSnapshot(snapshot=>{
+            setPost(snapshot.docs.map(doc=>({
+                id:doc.id,
+                data:doc.data()
+            })))
+        })
+    },[])
+
     return (
         <div className='feed'>
             <div className='feed__input'>
@@ -52,8 +64,12 @@ function Feed() {
                 </div>
             </div>
             </div>
-            <Post name = "shivansh" description = "this is test" message ="we are awesome" photoURL = "https://tse1.mm.bing.net/th?id=OIP.HYt3eGZJ81Lso5LKSPNI1gHaEo&pid=Api&rs=1&c=1&qlt=95&w=196&h=122"/>
-           
+            {
+                posts.map(({id,data : {name,description, message, photoURL}})=>{
+                    return <Post key = {id} name = {name} description = {description} message = {message} photoURL ={photoURL} /> 
+                })
+            }
+                       
         </div>
     )
 }

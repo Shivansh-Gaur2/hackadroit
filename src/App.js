@@ -3,19 +3,27 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Feed from './Feed';
 import Widget from './Widget';
+import Login from './Login';
 
 function App() {
+  const user = null;
   return (
-    <div className="App">
-      <div className='app_wrapper'>
-        <Header />
-        <div className='app_body'>
-          <Sidebar/>
-          <Feed/>
-          <Widget/>
+    <>
+    {
+      !user ? (<Login/>):(
+        <div className="App">
+        <div className='app_wrapper'>
+          <Header />
+          <div className='app_body'>
+            <Sidebar/>
+            <Feed/>
+            <Widget/>
+          </div>
         </div>
       </div>
-    </div>
+      )
+    }
+    </>
   );
 }
 
