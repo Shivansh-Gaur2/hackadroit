@@ -1,11 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import Reactcontact from './component/reactcontact';
+import React from 'react'
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Feed from './Feed';
+import Widget from './Widget';
+
 function App() {
   return (
-    <>
-     <Reactcontact />
-    </>
+    <div className="App">
+      <div className='app_wrapper'>
+        <Header />
+        <div className='app_body'>
+          <Sidebar/>
+          <Feed/>
+          <Widget/>
+        </div>
+      </div>
+    </div>
   );
 }
 
