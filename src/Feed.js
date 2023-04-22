@@ -10,6 +10,7 @@ function Feed() {
     return (
         <div className='feed'>
             <div className='feed__input'>
+            <div className='feed__form'>
                 <Avatar/>
                 <form> 
                     <input type='text' placeholder='Start a post'/>
@@ -34,6 +35,7 @@ function Feed() {
                     <ArticleIcon/>
                     <span>Article</span>
                 </div>
+            </div>
             </div>
         </div>
     )
