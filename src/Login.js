@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import "./css/login.css"
 
 function Login() {
@@ -34,7 +34,7 @@ function Login() {
   return (
     <>
 
-    <div className="loginscreen">
+    <div className="loginScreen">
         <img src="https://avatars.githubusercontent.com/u/108508652?s=280&v=4"/>
 
         {
