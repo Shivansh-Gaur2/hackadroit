@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     {
-      !user ? (<Login/>):(
+      user ? (<Login/>):(
         <div className="App">
         <div className='app_wrapper'>
           <Header />
